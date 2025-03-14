@@ -3,7 +3,7 @@
 .main.header {
   .navbar {
     @include flex($gap: 1rem, $align: center);
-    padding: $base-padding * 2 $base-padding;
+    padding: $base-padding;
     border-bottom: 1px solid lightgrey;
     
     button.menu-toggler {
@@ -21,7 +21,7 @@
   
   .tabs {
     @include flex($gap: 1rem);
-    padding: $base-padding * 2 $base-padding;
+    padding: $base-padding;
     
     a {
       font-weight: 500;
@@ -55,6 +55,27 @@ main {
   
   article {
     @include flex($gap: 2rem, $dir: column);
-    padding: $base-padding * 4 0;
+    padding: $base-padding * 2 0;
+    
+    & > section {
+      @include flex($gap: $base-padding / 2, $dir: column);
+      line-height: 1.5;
+      
+      h4 {
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  
+  .illustration {
+    .container {
+      @include flex($gap: $base-padding, $align: center);
+    }
+    
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }

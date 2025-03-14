@@ -37,17 +37,13 @@ $base-padding: 1rem;
 }
 
 body {
-  max-width: 360px;
+  max-width: 100%;
   margin: 0 auto;
   font-weight: normal;
-  border: 1px solid $black;
-}
-
-a {
-  text-decoration: none;
-  color: $black;
-}
+/*   border: 1px solid $black;
+ */}
 
 a:link{
-  color: $secondary;
+  text-decoration: none;
+  color: $blue;
 }
