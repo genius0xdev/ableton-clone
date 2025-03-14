@@ -3,12 +3,13 @@
 .main.header {
   .navbar {
     @include flex($gap: 1rem, $align: center);
-    padding: $base-padding;
+    padding: $base-padding * 2 $base-padding;
     border-bottom: 1px solid lightgrey;
     
     button.menu-toggler {
       @include flex($gap: .25rem, $align: middle baseline);
       font-size: 1rem;
+      font-weight: 500;
       border: none;
       background: transparent;
       
@@ -22,9 +23,38 @@
     @include flex($gap: 1rem);
     padding: $base-padding * 2 $base-padding;
     
-    a.active, a:active {
-      /* font-weight: 600; */
+    a {
+      font-weight: 500;
+      color: $black;
+    }
+    
+    a.active {
       color: $secondary;
     }
+  }
+}
+
+main {
+  padding: $base-padding * 2;
+  
+  .brand-image {
+    @include flex($align: center, $justify: center);
+    width: 100%;
+    height: 80vh;
+    background-image: url('../assets/images/header.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    
+    h1 {
+      font-size: 3rem;
+      font-weight: 500;
+      color: $secondary;
+    }
+  }
+  
+  article {
+    @include flex($gap: 2rem, $dir: column);
+    padding: $base-padding * 4 0;
   }
 }

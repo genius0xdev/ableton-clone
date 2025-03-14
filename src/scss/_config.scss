@@ -10,7 +10,7 @@ $weak-green: #b6ffc0;
 $blue: #0000ff;
 $black:  rgb(0, 0, 0);
 
-$base-padding: .5rem;
+$base-padding: 1rem;
 
 // Mixins
 @mixin flex(
@@ -32,14 +32,13 @@ $base-padding: .5rem;
 *:after {
   padding: 0;
   margin: 0;
-  font-family: 'Futura PT';
+  font-family: 'Futura PT', system-ui;
   box-sizing: border-box;
 }
 
 body {
   max-width: 360px;
   margin: 0 auto;
-  font-family: 'Futura PT';
   font-weight: normal;
   border: 1px solid $black;
 }
