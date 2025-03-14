@@ -1,5 +1,7 @@
-//Color Palette
+@import 'logo';
+@import 'font';
 
+// Variables
 $primary: #fbffa7;
 $secondary: #ff764d;
 $weak-blue: #b1c5ff;
@@ -8,4 +10,45 @@ $weak-green: #b6ffc0;
 $blue: #0000ff;
 $black:  rgb(0, 0, 0);
 
-$theme-colors: ();
+$base-padding: .5rem;
+
+// Mixins
+@mixin flex(
+  $dir: row, 
+  $align: start, 
+  $justify: start,
+  $gap: 0rem
+){
+  display: flex;
+  flex-direction: $dir;
+  align-items: $align;
+  justify-content: $justify;
+  gap: $gap;
+}
+
+// Resets
+*,
+*:before,
+*:after {
+  padding: 0;
+  margin: 0;
+  font-family: 'Futura PT';
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 360px;
+  margin: 0 auto;
+  font-family: 'Futura PT';
+  font-weight: normal;
+  border: 1px solid $black;
+}
+
+a {
+  text-decoration: none;
+  color: $black;
+}
+
+a:link{
+  color: $secondary;
+}
