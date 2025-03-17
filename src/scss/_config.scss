@@ -40,10 +40,21 @@ body {
   max-width: 100%;
   margin: 0 auto;
   font-weight: normal;
-/*   border: 1px solid $black;
- */}
+}
 
 a:link{
   text-decoration: none;
   color: $blue;
+}
+
+a:visited {
+  color: $blue;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: underline;
 }

@@ -47,7 +47,7 @@ main {
     background-size: cover;
     
     h1 {
-      font-size: 3rem;
+      font-size: 4rem;
       font-weight: 500;
       color: $secondary;
     }
@@ -58,7 +58,7 @@ main {
     padding: $base-padding * 2 0;
     
     & > section {
-      @include flex($gap: $base-padding / 2, $dir: column);
+      @include flex($gap: calc($base-padding / 2), $dir: column);
       line-height: 1.5;
       
       h4 {
@@ -77,5 +77,25 @@ main {
       width: 100%;
       height: auto;
     }
+  }
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  background-color: $weak-blue;
+  
+  .card-image {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  .card-body, .card-footer {
+    @include flex($dir: column, $gap: 1rem);
+    padding: $base-padding calc($base-padding * 2);
+    font-weight: 500;
+    font-size: 1.3rem;
   }
 }
