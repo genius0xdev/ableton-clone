@@ -1,20 +1,115 @@
 @import 'config';
 
 .main.header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+
   .navbar {
     @include flex($gap: 1rem, $align: center);
     padding: $base-padding;
     border-bottom: 1px solid lightgrey;
     
     button.menu-toggler {
-      @include flex($gap: .25rem, $align: middle baseline);
-      font-size: 1rem;
-      font-weight: 500;
       border: none;
       background: transparent;
       
-      .icon {
-        margin-top: .125rem;
+      .container {
+        @include flex($gap: .25rem, $align: middle baseline);
+        font-size: 1rem;
+        font-weight: 500;
+        
+        .icon {
+          width: 8px;
+          margin-top: .125rem;
+        }
+      }
+      
+      &.active {
+        position: fixed;
+        left: 100px;
+        color: white;
+        z-index: 20;
+        
+        .icon {
+          transform: rotate(180deg);
+          margin-top: -0.0618rem;
+          svg { fill: white; }
+        }
+      } 
+    }
+  }
+  
+  .menu-content {
+    position: fixed;
+    top: 0; left: 0;
+    bottom: 0; right: 0;
+    display: none;
+    width: 100%;
+    overflow: auto;
+    color: white;
+    background-color: $blue;
+    
+    &.active {
+      display: flex;
+    }
+    
+    ul {
+      @include flex($dir: column, $gap: 1rem);
+
+      li a {
+        font-size: 1.2rem;
+        color: white;
+      }
+    }
+    
+    .more {
+      &, & section { 
+        @include flex($dir: column, $gap: $base-padding); 
+      }
+      
+      section {
+        width: 100vw;
+        gap: 0.5rem;
+        
+        &:last-child {
+          ul {
+            max-width: 100%;
+            width: 100%;
+            flex-direction: row;
+            overflow: auto;
+            
+            li {
+              min-width: 200px;
+            }
+          }
+        }
+      }
+      
+      ul {
+        gap: 0.5rem;
+
+        li a {
+          font-size: 0.9rem;
+        }
+      }
+    }
+    
+    .container {
+      position: absolute;
+      max-width: 100%;
+      @include flex(
+        $dir: column, 
+        $gap: 1rem,
+        $justify: center
+      );
+      
+      top: 3rem;
+      padding: $base-padding;
+      overflow: hidden;
+      
+      h4, h5 {
+        font-weight: 600;
       }
     }
   }

@@ -46,6 +46,10 @@ body {
   font-weight: normal;
 }
 
+ul {
+  list-style-type: none;
+}
+
 a:link{
   text-decoration: none;
   color: $blue;
