@@ -1,8 +1,9 @@
-@import 'config';
+@import 'config/variables';
+@import 'config/reset';
 
 .main.header {
   background-color: white;
-
+  
   .navbar {
     @include flex($gap: 1rem, $align: center);
     padding: $base-padding;
@@ -32,16 +33,21 @@
         .icon {
           transform: rotate(180deg);
           margin-top: -0.0618rem;
-          svg { fill: white; }
+          
+          svg {
+            fill: white;
+          }
         }
-      } 
+      }
     }
   }
   
   .menu-content {
     position: fixed;
-    top: 0; left: 0;
-    bottom: 0; right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     display: none;
     width: 100%;
     overflow: auto;
@@ -54,7 +60,7 @@
     
     ul {
       @include flex($dir: column, $gap: 1rem);
-
+      
       li a {
         font-size: 1.2rem;
         color: white;
@@ -62,8 +68,10 @@
     }
     
     .more {
-      &, & section { 
-        @include flex($dir: column, $gap: $base-padding); 
+      
+      &,
+      & section {
+        @include flex($dir: column, $gap: $base-padding);
       }
       
       section {
@@ -86,7 +94,7 @@
       
       ul {
         gap: 0.5rem;
-
+        
         li a {
           font-size: 0.9rem;
         }
@@ -96,17 +104,16 @@
     .container {
       position: absolute;
       max-width: 100%;
-      @include flex(
-        $dir: column, 
+      @include flex($dir: column,
         $gap: 1rem,
-        $justify: center
-      );
+        $justify: center);
       
       top: 3rem;
       padding: $base-padding;
       overflow: hidden;
       
-      h4, h5 {
+      h4,
+      h5 {
         font-weight: 600;
       }
     }
@@ -150,7 +157,7 @@ main {
     @include flex($gap: 2rem, $dir: column);
     padding: $base-padding * 2 0;
     
-    & > section {
+    &>section {
       @include flex($gap: calc($base-padding / 2), $dir: column);
       line-height: 1.5;
       
@@ -185,7 +192,8 @@ main {
     }
   }
   
-  .card-body, .card-footer {
+  .card-body,
+  .card-footer {
     @include flex($dir: column, $gap: 1rem);
     padding: $base-padding calc($base-padding * 2);
     font-weight: 500;
@@ -204,7 +212,9 @@ footer {
     font-family: 'Futura PT';
     background-color: whitesmoke;
     
-    input, select, button {
+    input,
+    select,
+    button {
       display: block;
       width: 100%;
       margin: 0;
@@ -226,7 +236,7 @@ footer {
   
   .brand-name-img {
     display: block;
-    width: 40%;
+    width: 12rem;
     height: auto;
   }
   
@@ -236,13 +246,17 @@ footer {
     .links-container {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
       
-      & > div {
+      &>div {
         @include flex($gap: 0.1618rem, $dir: column);
         
-        h1, h2, h3, h4, h5 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
           font-weight: 600;
           margin: 0;
         }
@@ -254,18 +268,14 @@ footer {
     width: 100%;
     margin-top: 1rem;
     
-    @include flex(
-      $dir: column,
+    @include flex($dir: column,
       $gap: 1rem,
-      $justify: space-between
-    );
+      $justify: space-between);
     
     .brand-logo {
-      @include flex(
-        $gap: 1rem,
+      @include flex($gap: 1rem,
         $align: center,
-        $justify: space-between
-      );
+        $justify: space-between);
       
       h4 {
         font-weight: 600;
@@ -295,9 +305,13 @@ footer {
       label {
         span {
           width: 70%;
+          
           input {
             color: black;
-            &::placeholder { color: black; }
+            
+            &::placeholder {
+              color: black;
+            }
           }
         }
         
@@ -329,5 +343,13 @@ footer {
   
   a:link {
     color: black;
+  }
+}
+
+.bottom.card {
+  @media (min-width: 768px) {
+    .container {
+      @include flex($align: stretch);
+    }
   }
 }
