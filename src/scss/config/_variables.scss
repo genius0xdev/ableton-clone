@@ -35,12 +35,3 @@ $spacers: ();
     )
   );
 }
-
-$utilities: (
-  "padding": (
-    property: padding,
-    class: "p",
-    values: map-values($spacers),
-    responsive: "true",
-  ),
-);

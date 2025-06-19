@@ -28,7 +28,9 @@ $base-padding: 1rem;
   padding: 0;
   margin: 0;
   font-family: "Futura PT", system-ui;
+  font-size: 100%;
   box-sizing: border-box;
+  line-height: 1.5;
 }
 
 html {
@@ -61,4 +63,3 @@ a:active {
 a:hover {
   text-decoration: underline;
 }
-
