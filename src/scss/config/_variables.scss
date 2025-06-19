@@ -4,38 +4,43 @@ $weak-blue: #b1c5ff;
 $weak-purple: #d5b3ff;
 $weak-green: #b6ffc0;
 $blue: #0000ff;
-$black:  rgb(0, 0, 0); 
+$black: rgb(0, 0, 0);
 
 $theme-colors: (
-    "primary" : $primary,
-    "secondary" : $secondary,
-    "weak-blue" : $weak-blue,
-    "weak-purple" : $weak-purple,
-    "weak-green": $weak-green,
-    "blue": $blue,
-    "black": $black
+  "primary": $primary,
+  "secondary": $secondary,
+  "weak-blue": $weak-blue,
+  "weak-purple": $weak-purple,
+  "weak-green": $weak-green,
+  "blue": $blue,
+  "black": $black,
 );
 
 $breakpoints: (
-    "xs": 0,
-    "sm": 600px,
-    "md": 768px,
-    "lg": 992px,
-    "xl": 1200px,
-    "xxl": 1440px
+  "xs": 0,
+  "sm": 600px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1440px,
 );
 
 $spacer: 0.25rem;
 $spacers: ();
 @for $i from 0 through 1 {
-    $spacers: map-merge($spacers, ($i: $i * $spacer));
+  $spacers: map-merge(
+    $spacers,
+    (
+      $i: $i * $spacer,
+    )
+  );
 }
 
 $utilities: (
-    "padding": (
-        property: padding,
-        class: "p",
-        values: map-values($spacers),
-        responsive: "true"
-    ),
+  "padding": (
+    property: padding,
+    class: "p",
+    values: map-values($spacers),
+    responsive: "true",
+  ),
 );

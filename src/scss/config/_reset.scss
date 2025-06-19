@@ -1,5 +1,5 @@
-@import '../logo';
-@import '../font';
+@import "../logo";
+@import "../font";
 
 // Variables
 $primary: #fbffa7;
@@ -8,17 +8,12 @@ $weak-blue: #b1c5ff;
 $weak-purple: #d5b3ff;
 $weak-green: #b6ffc0;
 $blue: #0000ff;
-$black:  rgb(0, 0, 0);
+$black: rgb(0, 0, 0);
 
 $base-padding: 1rem;
 
 // Mixins
-@mixin flex(
-  $dir: row, 
-  $align: start, 
-  $justify: start,
-  $gap: 0rem
-){
+@mixin flex($dir: row, $align: start, $justify: start, $gap: 0rem) {
   display: flex;
   flex-direction: $dir;
   align-items: $align;
@@ -32,7 +27,7 @@ $base-padding: 1rem;
 *:after {
   padding: 0;
   margin: 0;
-  font-family: 'Futura PT', system-ui;
+  font-family: "Futura PT", system-ui;
   box-sizing: border-box;
 }
 
@@ -50,7 +45,7 @@ ul {
   list-style-type: none;
 }
 
-a:link{
+a:link {
   text-decoration: none;
   color: $blue;
 }
@@ -66,3 +61,4 @@ a:active {
 a:hover {
   text-decoration: underline;
 }
+
