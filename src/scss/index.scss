@@ -88,7 +88,15 @@ main {
     font-size: 1.3rem;
   }
 
-  @media (min-width: map-get($breakpoints, "lg")) {
+  @media (min-width: map-get($breakpoints, "md")) {
+    .card-body {
+      width: 80%;
+      margin: 0 auto;
+      padding: $base-padding * 4 $base-padding * 2;
+    }
+  }
+
+  @media (min-width: map-get($breakpoints, "xl")) {
     width: 90%;
     margin: 0 auto;
 
@@ -103,15 +111,15 @@ main {
           display: block;
           max-width: 100%;
           width: max-content;
+          height: 100%;
         }
       }
 
       .card-body {
         width: 50%;
         height: max-content;
-        padding: 0 $base-padding * 4;
+        padding: $base-padding * 8 $base-padding * 4;
         align-self: center;
-        // border: 1px solid red;
       }
     }
   }
