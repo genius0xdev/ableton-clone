@@ -1,37 +1,59 @@
-$primary: #fbffa7;
+$accent: #fbffa7;
 $secondary: #ff764d;
-$weak-blue: #b1c5ff;
-$weak-purple: #d5b3ff;
-$weak-green: #b6ffc0;
-$blue: #0000ff;
+$gray: #b1c5ff;
+$accent-1: #d5b3ff;
+$accent-2: #b6ffc0;
+$primary: #0000ff;
 $black: rgb(0, 0, 0);
 
+$base-padding: 1rem;
+$font-size-base: 1rem;
+
 $theme-colors: (
-  "primary": $primary,
-  "secondary": $secondary,
-  "weak-blue": $weak-blue,
-  "weak-purple": $weak-purple,
-  "weak-green": $weak-green,
-  "blue": $blue,
-  "black": $black,
+    "primary": $primary,
+    "secondary": $secondary,
+    "gray": $gray,
+    "accent": $accent,
+    "accent-1": $accent-1,
+    "accent-2": $accent-2,
+    "black": $black,
 );
 
 $breakpoints: (
-  "xs": 0,
-  "sm": 600px,
-  "md": 768px,
-  "lg": 992px,
-  "xl": 1200px,
-  "xxl": 1440px,
+    "xs": 0,
+    "sm": 600px,
+    "md": 768px,
+    "lg": 992px,
+    "xl": 1200px,
+    "xxl": 1440px,
 );
 
 $spacer: 0.25rem;
 $spacers: ();
-@for $i from 0 through 1 {
-  $spacers: map-merge(
-    $spacers,
-    (
-      $i: $i * $spacer,
-    )
-  );
+
+@for $i from 0 through 20 {
+    $spacers: map-merge(
+        $spacers,
+        (
+            $i: $i * $spacer,
+        )
+    );
+}
+
+:root {
+    --base-padding: #{$base-padding};
+    --spacer: 0.5rem;
+    --font-size-base: #{$font-size-base};
+
+    @each $key, $value in $spacers {
+        --spacer-#{$key}: #{$value};
+    }
+
+    @each $key, $value in $breakpoints {
+        --breakpoint-#{$key}: #{$value};
+    }
+
+    @each $key, $value in $theme-colors {
+        --color-#{$key}: #{$value};
+    }
 }
