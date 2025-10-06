@@ -5,7 +5,11 @@
 @import "sections/footer";
 
 body {
-    background-color: lighten(map-get($theme-colors, "accent"), 10);
+    background-color: whitesmoke;
+
+    @include breakpoint-up("xxl") {
+        font-size: $font-size-base * 1.32;
+    }
 
     .container {
         max-width: map-get($breakpoints, "xxl");
@@ -15,12 +19,12 @@ body {
 }
 
 main {
-    padding: 0 var(--spacer-8);
+    // padding: 0 var(--spacer-8);
 
     .brand-image {
         @include flex($align: center, $justify: center);
 
-        @media (min-width: map-get($breakpoints, "lg")) {
+        @include breakpoint-up("lg") {
             max-width: 90%;
         }
 
@@ -33,61 +37,92 @@ main {
 
         h1 {
             font-size: 4rem;
-            @media (min-width: 992px) {
+
+            @include breakpoint-up("xl") {
                 font-size: 6rem;
             }
+
             font-weight: 500;
             color: $secondary;
         }
     }
 
     article {
-        @include flex($gap: 2rem, $dir: column);
+        @include flex($gap: var(--spacer-8), $dir: column);
         padding: $base-padding * 2 0;
+
+        @include breakpoint-up("xl") {
+            gap: var(--spacer-20);
+        }
 
         & > section {
             @include flex($gap: calc($base-padding / 2), $dir: column);
+
+            @include breakpoint-up("xxl") {
+                gap: var(--spacer-20);
+            }
+
             width: 100%;
             margin: 0 auto;
 
             div.text-content {
                 @include flex($dir: column, $gap: var(--spacer-4));
-                max-width: 512px;
+
+                max-width: var(--breakpoint-sm);
+                padding: var(--spacer-4);
                 margin: 0 auto;
+                text-align: justify;
+                text-justify: pretty;
             }
 
             h4 {
                 font-weight: 600;
-                font-size: 1.2rem;
+                font-size: 120%;
             }
         }
     }
 
     .illustration {
+        position: relative;
         width: 100%;
 
-        .container {
-            @include flex($gap: $base-padding, $align: center);
+        .container,
+        .inner-container {
+            @include flex($gap: var(--spacer-8), $align: center);
             gap: var(--spacer-6);
+            padding: 8%;
         }
 
-        @media (min-width: #{map-get($breakpoints, "sm")}) {
-            padding: var(--spacer-14);
+        .inner-container {
+            width: 100%;
+            flex-direction: column;
+            padding: 0;
+        }
 
+        div.platform.box {
+            position: absolute;
+            width: 60%;
+            top: 0;
+            bottom: 0;
+            right: 0;
+
+            background-color: var(--color-accent);
+        }
+
+        @include breakpoint-up("sm") {
             .container {
-                gap: var(--spacer-12);
+                gap: var(--spacer-20);
 
                 .inner-container {
-                    @include flex($dir: column, $gap: var(--spacer-12));
-
-                    width: 100%;
-                    padding: var(--spacer-14) 0;
+                    gap: var(--spacer-20);
+                    padding: var(--spacer-20) 0;
                 }
             }
         }
 
         & > .container span {
             width: 100%;
+            z-index: 1;
 
             img {
                 width: 100%;
@@ -97,18 +132,46 @@ main {
     }
 }
 
+.second.illustration {
+    div.platform.box {
+        left: 0;
+        right: reset;
+        background-color: var(--color-accent-2);
+    }
+}
+
+.third.illustration {
+    .container {
+        padding-right: 0;
+        justify-content: space-between;
+    }
+
+    div.platform.box {
+        left: 0;
+        margin: var(--spacer-4) auto;
+        background-color: var(--color-accent-1);
+    }
+}
+
+.illustration.video {
+    max-width: var(--breakpoint-sm);
+    margin: 0 auto;
+    padding: var(--spacer-4);
+}
+
 .bottom.card {
-    max-width: var(--breakpoint-xl);
+    max-width: 1240px;
     width: 100%;
     height: auto;
+    padding: var(--spacer-4);
     margin: 0 auto;
 
-    @media (min-width: map-get($breakpoints, "md")) {
+    @include breakpoint-up("md") {
         .container {
             display: grid;
             grid-template-columns: repeat(2, minmax(200px, 1fr));
             place-items: center;
-            min-height: 512px;
+            min-height: var(--breakpoint-sm);
         }
 
         padding: var(--spacer-14);
@@ -129,12 +192,12 @@ main {
     }
 
     .card-body {
-        @include flex($gap: var(--spacer-2), $dir: column);
+        @include flex($gap: var(--spacer-4), $dir: column);
 
-        max-width: 512px;
+        max-width: var(--breakpoint-sm);
         padding: var(--spacer-10);
         font-weight: 500;
-        font-size: calc(var(--font-size-base) + 0.2rem);
+        font-size: 120%;
     }
 }
 

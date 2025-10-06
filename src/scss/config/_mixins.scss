@@ -2,3 +2,17 @@
     display: block;
     margin: 0 auto;
 }
+
+@mixin breakpoint-up($key: "sm") {
+    @media (min-width: #{map-get($breakpoints, $key)}) {
+        @content;
+    }
+}
+
+@mixin flex($dir: row, $align: start, $justify: start, $gap: 0rem) {
+    display: flex;
+    flex-direction: $dir;
+    align-items: $align;
+    justify-content: $justify;
+    gap: $gap;
+}

@@ -1,14 +1,6 @@
 @import "../logo";
 @import "../font";
-
-// Mixins
-@mixin flex($dir: row, $align: start, $justify: start, $gap: 0rem) {
-    display: flex;
-    flex-direction: $dir;
-    align-items: $align;
-    justify-content: $justify;
-    gap: $gap;
-}
+@import "mixins";
 
 // Resets
 *,
@@ -20,6 +12,7 @@
     font-size: 100%;
     box-sizing: border-box;
     line-height: 1.5;
+    transition: 0.3s ease-in-out;
 }
 
 html {

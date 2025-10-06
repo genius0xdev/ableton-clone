@@ -2,6 +2,9 @@ let toggler = document.querySelector(".menu-toggler");
 let menuContent = document.querySelector(".menu-content");
 let logo = document.querySelector(".logo");
 
+let moreBtn = document.getElementById("moreBtn");
+moreBtn.onclick = function () {};
+
 toggler.addEventListener("click", handleToggler);
 
 function handleToggler(evt) {
